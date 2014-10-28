@@ -21,4 +21,5 @@ describe Person do
 
 end
 
-#
+#has bike
+#doesn't have bike 
