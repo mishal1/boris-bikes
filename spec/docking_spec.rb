@@ -1,6 +1,4 @@
-require './lib/dock.rb'
-# require './lib/person.rb'
-require './lib/bike.rb'
+require 'dock'
 
 describe DockingStation do
 	let(:station) {station = DockingStation.new(:capacity => 20)}
@@ -32,6 +30,14 @@ describe DockingStation do
 	it "should not accept a bike when full" do
 		20.times{station.dock(bike)}
 		expect(lambda {station.dock(bike)}).to raise_error(RuntimeError)
+	end
+
+	it "should provide a list of the available bikes" do
+		working, broken = Bike.new, Bike.new
+		broken.break!
+		station.dock(working)
+		station.dock(broken)
+		expect(station.available_bikes).to eq([working])
 	end
 
 end

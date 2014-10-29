@@ -1,10 +1,18 @@
-class DockingStation
+module BikeContainer
 
 	DEFAULT_CAPACITY = 10
 
-	def initialize(options = {})
-		@capacity = options.fetch(:capacity, DEFAULT_CAPACITY)
-		@bikes = []
+	# def initialize(options = {})
+	# 	@capacity = options.fetch(:capacity, DEFAULT_CAPACITY)
+	# 	@bikes = []
+	# end
+	def bikes
+		@bikes ||=[]
+	end
+	
+
+	def capacity
+		@capacity ||= DEFAULT_CAPACITY
 	end
 
 	def bike_count
@@ -27,5 +35,4 @@ class DockingStation
 	def available_bikes
 		@bikes.reject {|bike| bike.broken?}
 	end
-
 end
