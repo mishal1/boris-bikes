@@ -13,6 +13,14 @@ describe BikeContainer do
 		expect(holder.bike_count).to eq(1)
 	end
 
+	it "should not release a bike if there are no bikes" do
+		expect(lambda {holder.release(bike)}).to raise_error(RuntimeError)
+	end
+
+	it "should check if there are no bikes" do
+		expect()
+	end
+
 end
 
 require './lib/dock.rb'

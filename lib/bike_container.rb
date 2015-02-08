@@ -14,8 +14,6 @@ module BikeContainer
 		@capacity = value
 	end
 
-	
-
 	def bike_count
 		bikes.count
 	end
@@ -26,6 +24,7 @@ module BikeContainer
 	end
 
 	def release(bike)
+		raise "There are no bikes in the Docking Station" if bikes.empty?
 		bikes.delete(bike)
 	end
 

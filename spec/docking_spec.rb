@@ -23,12 +23,12 @@ describe DockingStation do
 
 	it "should know when the docking station is full" do
 		expect(station).not_to be_full
-		20.times {station.dock(Bike.new)}
+		fill_station
 		expect(station).to be_full
 	end
 
 	it "shouldn't accept a bike when full" do
-		20.times {station.dock(Bike.new)}
+		fill_station
 		expect(station.bike_count).to eq(20)
 		expect(lambda {station.dock(bike)}).to raise_error(RuntimeError)
 	end
